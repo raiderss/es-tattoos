@@ -121,7 +121,7 @@ const app = new Vue({
 
     pay(payment){
       const url = `https://${resourceName}/buy`;
-      $.post(url, JSON.stringify({ method: payment, tattoo: this.basket, price:this.preview.Price}))
+      $.post(url, JSON.stringify({ method: payment, tattoo: this.basket, price:this.select.price}))
       this.basket = [];
     },
 
