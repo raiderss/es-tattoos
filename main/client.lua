@@ -30,8 +30,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-local keyToInteract = 38 -- Default: E
-
 function DrawText3D(text, x, y, z, scale, font, r, g, b, a)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoords())
