@@ -389,16 +389,3 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
-Citizen.CreateThread(function()
-    AddTextEntry("ParaTattoos", "Tattoo Shop")
-    for k, v in pairs(Config.Shops) do
-        local blip = AddBlipForCoord(v)
-        SetBlipSprite(blip, 75)
-        SetBlipColour(blip, 4)
-        SetBlipScale(blip, 0.7)
-        SetBlipAsShortRange(blip, true)
-        BeginTextCommandSetBlipName("ParaTattoos")
-        EndTextCommandSetBlipName(blip)
-    end
-end)
