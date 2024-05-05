@@ -1,7 +1,3 @@
-
-
-
-
 const resourceName = GetParentResourceName();
 const app = new Vue({
   el: '#app',
@@ -270,13 +266,13 @@ const app = new Vue({
         app.ui = false;
         app.tattoos.ZONE_REMOVAL = [];
         $.post(`https://${GetParentResourceName()}/exit`, JSON.stringify({}));
-    } else if (data.which == 37) { // Left arrow key
+    } else if (data.which == 37) { 
         $.post(`https://${GetParentResourceName()}/turn`, JSON.stringify({direction: "left"}));
-    } else if (data.which == 39) { // Right arrow key
+    } else if (data.which == 39) {
         $.post(`https://${GetParentResourceName()}/turn`, JSON.stringify({direction: "right"}));
-    } else if (data.which == 69) { // 'E' key for scrolling to the right
+    } else if (data.which == 69) { 
       app.scrollRight();
-    } else if (data.which == 81) { // 'Q' key for scrolling to the left
+    } else if (data.which == 81) { 
       app.scrollLeft();
     }
 };
