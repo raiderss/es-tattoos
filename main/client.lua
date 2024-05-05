@@ -115,7 +115,7 @@ local function reloadSkin()
         for _, tattoo in ipairs(currentTattoos) do
             local collectionHash = GetHashKey(tattoo.Collection)
             local overlayHash = GetHashKey(IsPedMale(playerPed) and tattoo.HashNameMale or tattoo.HashNameFemale)
-            SetPedDecoration(playerPed, collectionHash, overlayHash)  -- Dövmeyi uygular
+            SetPedDecoration(playerPed, collectionHash, overlayHash)  
         end
     else
         print("Forging list empty or failed to load.")
