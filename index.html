@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>es-xx</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+
+</head>
+
+<div id="app" v-if="ui">
+    <div class="rectangle-overlay"></div>
+
+    <div class="categories" ref="scrollContainer">
+        <h1>
+            Tattoo Shop
+        </h1>
+        <div class="right">
+            <svg width="2.25rem" height="2.25rem" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="35px" height="35" rx="4.5" fill="url(#paint0_radial_108_263)"/>
+                <rect x="0.5" y="0.5" width="35px" height="35" rx="4.5" fill="url(#paint1_radial_108_263)" fill-opacity="0.7"/>
+                <rect x="0.5" y="0.5" width="35px" height="35" rx="4.5" stroke="#BBB8B2"/>
+                <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="12.8145" y="26">Q</tspan></text>
+                <defs>
+                <radialGradient id="paint0_radial_108_263" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(31.0685 31.5) rotate(-93.6705) scale(30.8132 34.3426)">
+                <stop stop-opacity="0.23"/>
+                <stop offset="0.861815" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint1_radial_108_263" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(4.5 3.11539) rotate(47.8466) scale(44.3577)">
+                <stop stop-color="white" stop-opacity="0.59"/>
+                <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </radialGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="left">
+            <svg width="2.25rem" height="2.25rem" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="35" height="35" rx="4.5" fill="url(#paint0_radial_108_263)"/>
+                <rect x="0.5" y="0.5" width="35" height="35" rx="4.5" fill="url(#paint1_radial_108_263)" fill-opacity="0.7"/>
+                <rect x="0.5" y="0.5" width="35" height="35" rx="4.5" stroke="#BBB8B2"/>
+                <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="12.8145" y="26">E</tspan></text>
+                <defs>
+                <radialGradient id="paint0_radial_108_263" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(31.0685 31.5) rotate(-93.6705) scale(30.8132 34.3426)">
+                <stop stop-opacity="0.23"/>
+                <stop offset="0.861815" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint1_radial_108_263" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(4.5 3.11539) rotate(47.8466) scale(44.3577)">
+                <stop stop-color="white" stop-opacity="0.59"/>
+                <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </radialGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="label"
+                v-for="(eyes, index) in categories"
+                @click="category(index, eyes)"
+                v-if="!(eyes.class === 'ZONE_REMOVAL' && tattoos.ZONE_REMOVAL.length <= 0)"
+                ref="scrollContainer"
+                :style="{ borderBottom: select.categories === index ? '3px solid #FFAE25' : '', opacity: select.categories === index ? '1' : '' }">
+            {{ eyes.label }}
+        </div>
+    </div>
+
+        <div class="tattoo">
+            <div class="list" v-for="(eyes, index) in tattoos[select.class]" 
+            :key="index" 
+            @click="get(index, eyes)"             
+            :ref="'eyeElement_' + index"
+            @mouseenter="hoverEnter(index, eyes, select.class)"
+            @mouseleave="hoverLeave(index)">
+            <svg v-if="select.tattoos == index" width="15.75rem" height="15rem" viewBox="0 0 252 240" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect x="0.5" y="0.5" width="251" height="239" rx="4.5" fill="#FFAE25"/>
+                <rect x="0.5" y="0.5" width="251" height="239" rx="4.5" fill="url(#paint0_radial_108_417)" fill-opacity="0.7"/>
+                <rect x="0.5" y="0.5" width="251" height="239" rx="4.5" fill="url(#paint1_radial_108_417)"/>
+                <rect x="0.5" y="0.5" width="251" height="239" rx="4.5" stroke="#FFAE25"/>
+                <g style="mix-blend-mode:hard-light" filter="url(#filter0_d_108_417)">
+                <rect x="54" y="46" width="145" height="145" fill="url(#pattern0_108_417)" shape-rendering="crispEdges"/>
+                </g>
+                <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" :font-size="getFontSize()" text-anchor="middle" font-weight="500" letter-spacing="0em"><tspan x="125.1152" y="32.2">{{ eyes.Name }}</tspan></text>
+                <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="28" text-anchor="middle" font-weight="bold" letter-spacing="0em"><tspan x="126.1953" y="228.2">{{  formatPrice(eyes.Price) }}</tspan></text>
+                <defs>
+                <filter id="filter0_d_108_417" x="50" y="42" width="155" height="155" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="1" dy="1"/>
+                <feGaussianBlur stdDeviation="2.5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_108_417"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_108_417" result="shape"/>
+                </filter>
+                <pattern id="pattern0_108_417" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_108_417" transform="scale(0.00195312)"/>
+                </pattern>
+                <radialGradient id="paint0_radial_108_417" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(66.5 50) rotate(49.6709) scale(205.508 207.381)">
+                <stop stop-color="white" stop-opacity="0.59"/>
+                <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint1_radial_108_417" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(217.479 210) rotate(-93.8535) scale(205.465 240.348)">
+                <stop stop-opacity="0.23"/>
+                <stop offset="0.861815" stop-opacity="0"/>
+                </radialGradient>                                                                                              </defs>
+            </svg>
+
+            <svg v-else width="15.75rem" height="15rem" viewBox="0 0 252 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.5" width="251" height="239" rx="4.5" fill="white" fill-opacity="0.25" stroke="#BBB8B2"/>
+                <g filter="url(#filter0_d_108_397)">
+                <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" text-anchor="middle" :font-size="getFontSize()" font-weight="500" letter-spacing="0em"><tspan x="125.1152" y="32.2">{{ eyes.Name }}</tspan></text>
+                </g>
+                <g filter="url(#filter1_d_108_397)">
+                <text fill="#0FD682" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="28" text-anchor="middle" font-weight="bold" letter-spacing="0em"><tspan x="126.1953" y="228.2">{{  formatPrice(eyes.Price) }}</tspan></text>
+                </g>
+                <defs>
+                <filter id="filter0_d_108_397" x="31.2715" y="11.7266" width="194.619" height="22.6094" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="1" dy="1"/>
+                <feGaussianBlur stdDeviation="0.5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_108_397"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_108_397" result="shape"/>
+                </filter>
+                <filter id="filter1_d_108_397" x="66.5957" y="206.02" width="122.373" height="26.3594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="1" dy="1"/>
+                <feGaussianBlur stdDeviation="0.5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_108_397"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_108_397" result="shape"/>
+                </filter>
+                </defs>
+            </svg>
+            <div :style="{ backgroundImage: `url(./assets/img/tatto/${select.class === 'ZONE_REMOVAL' ? eyes.Zone : eyes.Zone}.png)`}" class="image" v-if="select"></div>
+        </div>
+    </div>
+
+    <div class="added" @click="baskets()">
+        <svg width="31.9375rem" height="3.25rem" viewBox="0 0 511 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect v-if="select.class != 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="#FFAE25"/>
+            <rect v-if="select.class != 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="url(#paint0_radial_108_311)" fill-opacity="0.7"/>
+            <rect v-if="select.class != 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="url(#paint1_radial_108_311)"/>
+            <rect v-if="select.class == 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="#840510"/>
+            <rect v-if="select.class == 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="url(#paint0_radial_108_311)" fill-opacity="0.7"/>
+            <rect v-if="select.class == 'ZONE_REMOVAL' " width="511" height="52" rx="5" fill="url(#paint1_radial_108_311)"/>
+            <text v-if="select.class != 'ZONE_REMOVAL' " fill="black" xml:space="preserve" text-anchor="middle" style="white-space: pre" font-family="Akrobat" font-size="28" font-weight="bold" letter-spacing="0em"><tspan x="269.471" y="37.2">ADD TO BASKET</tspan></text>
+            <text v-else fill="white" xml:space="preserve" style="white-space: pre" text-anchor="middle" font-family="Akrobat" font-size="28" font-weight="bold" letter-spacing="0em"><tspan x="269.471" y="37.2">REMOVE TATTOO</tspan></text>
+            <defs>
+            <radialGradient id="paint0_radial_108_311" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(134.847 10.8333) rotate(7.17367) scale(271.822 68.8849)">
+            <stop stop-color="white" stop-opacity="0.59"/>
+            <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="paint1_radial_108_311" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(441 45.5) rotate(-122.227) scale(52.5056 413.222)">
+            <stop stop-opacity="0.23"/>
+            <stop offset="0.861815" stop-opacity="0"/>
+            </radialGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="exit">
+        <svg width="10.8125rem" height="2.1875rem" viewBox="0 0 173 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text fill="#BBB8B2" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="0.402344" y="25">EXIT THE STORE</tspan></text>
+            <rect x="126" width="47" height="35" rx="5" fill="#FFAE25"/>
+            <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="135" y="25">ESC</tspan></text>
+        </svg>
+    </div>
+
+    <div class="basket" v-if="select.class != 'ZONE_REMOVAL' && basket.length > 0">
+
+        <div class="baskets">
+            <div class="list" v-for="eyes in basket">
+                <svg width="34.5rem" height="3.25rem" viewBox="0 0 552 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="489" height="51" rx="4.5" fill="black" fill-opacity="0.5" stroke="#BBB8B2"/>
+                    <g filter="url(#filter0_d_118_482)">
+                    <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="28" font-weight="500" letter-spacing="0em"><tspan x="19" y="37.2">{{ eyes.Name }}</tspan></text>
+                    </g>
+                    <g filter="url(#filter1_d_118_482)">
+                    <text fill="#0FD682" xml:space="preserve" style="white-space: pre" font-family="Akrobat-Category" font-size="28" font-weight="bold" letter-spacing="0em"><tspan x="346.391" y="37.2">{{ formatPrice(eyes.Price) }} $</tspan></text>
+                    </g>
+
+                    <rect @click="setbasket('basket', eyes)" x="500.5" y="0.5" width="51" height="51" rx="4.5" fill="#BC4948" fill-opacity="0.25" stroke="#FF4B4B"/>
+                    <path @click="setbasket('basket', eyes)" d="M523.883 33.9675H523.898C524.298 33.959 524.616 33.6284 524.607 33.2287L524.317 19.3971C524.309 19.0026 523.986 18.6886 523.594 18.6886H523.578C523.178 18.6971 522.861 19.0276 522.869 19.4274L523.159 33.259C523.168 33.6535 523.49 33.9675 523.883 33.9675ZM528.119 33.9675C528.512 33.9675 528.835 33.6535 528.843 33.259L529.133 19.4274C529.141 19.028 528.824 18.6971 528.424 18.6886H528.409C528.016 18.6886 527.693 19.0026 527.685 19.3971L527.395 33.2287C527.387 33.628 527.704 33.959 528.104 33.9675H528.119ZM533.818 18.6896C533.421 18.6769 533.083 18.9879 533.068 19.3872L532.488 35.6632C532.488 36.1538 532.089 36.5526 531.6 36.5526H520.404C519.913 36.5526 519.514 36.1536 519.513 35.6373L518.934 19.3872C518.919 18.9879 518.582 18.6781 518.184 18.6896C517.784 18.7038 517.472 19.0394 517.486 19.4385L518.065 35.6633C518.065 36.9519 519.114 38 520.403 38H531.6C532.888 38 533.936 36.9517 533.936 35.6889L534.515 19.4388C534.53 19.0399 534.217 18.7045 533.818 18.6902L533.818 18.6896ZM535.276 15.795H530.863V13.7237C530.863 13.3239 530.538 13 530.138 13H521.865C521.464 13 521.14 13.3239 521.14 13.7237V15.795H516.724C516.324 15.795 516 16.1189 516 16.5187C516 16.9185 516.324 17.2423 516.724 17.2423H535.276C535.676 17.2423 536 16.9185 536 16.5187C536 16.1189 535.675 15.795 535.276 15.795H535.276ZM529.414 15.795H522.589V14.4473H529.414V15.795Z" fill="white"/>
+
+                    <defs>
+                    <filter id="filter0_d_118_482" x="21.1562" y="16.7266" width="194.619" height="22.6094" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="1" dy="1"/>
+                    <feGaussianBlur stdDeviation="0.5"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_118_482"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_118_482" result="shape"/>
+                    </filter>
+                    <filter id="filter1_d_118_482" x="347.791" y="15.0195" width="122.373" height="26.3594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="1" dy="1"/>
+                    <feGaussianBlur stdDeviation="0.5"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_118_482"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_118_482" result="shape"/>
+                    </filter>
+                    </defs>
+                </svg>
+            </div> 
+        </div>
+    
+    
+        <div class="payment">
+            <svg width="34.7rem" height="3.9375rem" viewBox="0 0 552 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect @click="pay('cash')" x="457" y="7" width="95" height="52" rx="5" fill="#0FD682"/>
+                <rect @click="pay('cash')" x="457" y="7" width="95" height="52" rx="5" fill="url(#paint0_radial_131_709)" fill-opacity="0.7"/>
+                <rect @click="pay('cash')" x="457" y="7" width="95" height="52" rx="5" fill="url(#paint1_radial_131_709)"/>
+                <path @click="pay('cash')" d="M520.714 19H489.286C488.149 19 487.059 19.4824 486.255 20.341C485.452 21.1999 485 22.3643 485 23.5789V43.4211C485 44.6357 485.452 45.8001 486.255 46.659C487.059 47.5176 488.149 48 489.286 48H520.714C521.851 48 522.941 47.5176 523.745 46.659C524.548 45.8001 525 44.6357 525 43.4211V23.5789C525 22.3643 524.548 21.1999 523.745 20.341C522.941 19.4824 521.851 19 520.714 19ZM495 35.0263C494.432 35.0263 493.886 34.7851 493.485 34.3558C493.083 33.9265 492.857 33.3439 492.857 32.7369C492.857 32.1298 493.083 31.5471 493.485 31.1179C493.887 30.6887 494.432 30.4475 495 30.4475C495.568 30.4475 496.114 30.6887 496.515 31.1179C496.917 31.5472 497.143 32.1298 497.143 32.7369C497.143 33.3439 496.917 33.9266 496.515 34.3558C496.113 34.785 495.568 35.0263 495 35.0263ZM504.286 31.9737H505.714C506.904 31.975 508.015 32.6091 508.678 33.6653C509.34 34.7214 509.467 36.0604 509.015 37.2368C508.564 38.4132 507.594 39.2721 506.429 39.5276V40.3685C506.429 40.9139 506.156 41.4178 505.714 41.6903C505.272 41.9629 504.728 41.9629 504.286 41.6903C503.844 41.4178 503.571 40.9139 503.571 40.3685V39.6053H502.143C501.632 39.6053 501.161 39.3144 500.906 38.8422C500.651 38.37 500.651 37.788 500.906 37.3158C501.161 36.8436 501.632 36.5527 502.143 36.5527H505.714C506.109 36.5527 506.429 36.211 506.429 35.7895C506.429 35.3681 506.109 35.0264 505.714 35.0264H504.286C503.096 35.025 501.985 34.391 501.322 33.3348C500.66 32.2787 500.533 30.9397 500.985 29.7633C501.436 28.5869 502.406 27.728 503.571 27.4724V26.6316C503.571 26.0861 503.844 25.5823 504.286 25.3097C504.728 25.0371 505.272 25.0371 505.714 25.3097C506.156 25.5823 506.429 26.0861 506.429 26.6316V27.3947H507.857C508.368 27.3947 508.839 27.6857 509.094 28.1579C509.349 28.6301 509.349 29.212 509.094 29.6842C508.839 30.1564 508.368 30.4474 507.857 30.4474H504.286C503.891 30.4474 503.571 30.7891 503.571 31.2105C503.571 31.632 503.891 31.9737 504.286 31.9737ZM515 35.7895C514.432 35.7895 513.886 35.5483 513.485 35.119C513.083 34.6897 512.857 34.1071 512.857 33.5C512.857 32.893 513.083 32.3103 513.485 31.8811C513.887 31.4519 514.432 31.2106 515 31.2106C515.568 31.2106 516.114 31.4518 516.515 31.8811C516.917 32.3104 517.143 32.893 517.143 33.5C517.143 34.1071 516.917 34.6898 516.515 35.119C516.113 35.5482 515.568 35.7895 515 35.7895Z" fill="black"/>
+                <rect @click="pay('card')" x="347" y="7" width="95" height="52" rx="5" fill="#FFAE25"/>
+                <rect @click="pay('card')" x="347" y="7" width="95" height="52" rx="5" fill="url(#paint2_radial_131_709)" fill-opacity="0.7"/>
+                <rect @click="pay('card')" x="347" y="7" width="95" height="52" rx="5" fill="url(#paint3_radial_131_709)"/>
+                <path @click="pay('card')" d="M409.28 19H380.72C377.563 19 375 21.4386 375 24.4426V27.6167H414.999V24.4422C414.999 21.4446 412.437 19 409.28 19Z" fill="black"/>
+                <path @click="pay('card')" d="M375 42.5574C375 45.5614 377.563 48 380.72 48H409.28C412.431 48 415 45.5614 415 42.5574L415 30.3226H375.001L375 42.5574ZM395.003 38.9455H406.449C407.235 38.9455 407.874 39.5538 407.874 40.3016C407.874 41.0493 407.235 41.6518 406.449 41.6518L395.003 41.6513C394.217 41.6513 393.578 41.0494 393.578 40.3011C393.578 39.5533 394.217 38.9455 395.003 38.9455ZM383.097 38.9455H385.48C386.273 38.9455 386.905 39.5538 386.905 40.3016C386.905 41.0493 386.273 41.6518 385.48 41.6518L383.097 41.6513C382.311 41.6513 381.678 41.0494 381.678 40.3011C381.684 39.5533 382.317 38.9455 383.097 38.9455Z" fill="black"/> -->
+                <g filter="url(#filter0_d_131_709)">
+                <text fill="#0FD682" xml:space="preserve" style="white-space: pre" font-family="Akrobat" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="0" y="55.9">{{ formatPrice(select.price) }} $</tspan></text>
+                </g>
+                <g filter="url(#filter1_d_131_709)">
+                <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat" font-size="20" font-weight="500" letter-spacing="0em"><tspan x="0" y="20">Total price:</tspan></text>
+                </g>
+                <defs>
+                <filter id="filter0_d_131_709" x="1.00781" y="27.7383" width="200.305" height="33.3203" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="1" dy="1"/>
+                <feGaussianBlur stdDeviation="0.5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_131_709"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_131_709" result="shape"/>
+                </filter>
+                
+                <filter id="filter1_d_131_709" x="0.359375" y="5.53906" width="85.1406" height="20.0625" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="1" dy="1"/>
+                <feGaussianBlur stdDeviation="0.5"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_131_709"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_131_709" result="shape"/>
+                </filter>
+
+                <radialGradient id="paint0_radial_131_709" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(482.069 17.8333) rotate(34.0983) scale(60.5486 57.492)">
+                <stop stop-color="white" stop-opacity="0.59"/>
+                <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint1_radial_131_709" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(538.986 52.5) rotate(-96.6844) scale(44.7207 90.1953)">
+                <stop stop-opacity="0.23"/>
+                <stop offset="0.861815" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint2_radial_131_709" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(372.069 17.8333) rotate(34.0983) scale(60.5486 57.492)">
+                <stop stop-color="white" stop-opacity="0.59"/>
+                <stop offset="0.697917" stop-color="white" stop-opacity="0"/>
+                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="paint3_radial_131_709" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(428.986 52.5) rotate(-96.6844) scale(44.7207 90.1953)">
+                <stop stop-opacity="0.23"/>
+                <stop offset="0.861815" stop-opacity="0"/>
+                </radialGradient>
+                </defs>
+           </svg>
+        </div>
+    </div>
+
+
+    
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.min.js"></script>
+<script src="./assets/data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="./vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</body>
+
+</html>
