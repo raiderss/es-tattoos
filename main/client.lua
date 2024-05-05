@@ -108,10 +108,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-
--- TriggerServerEvent('qb-clothes:loadPlayerSkin')
-
-
 local function reloadSkin()
     TriggerServerEvent('qb-clothes:loadPlayerSkin')
     Citizen.Wait(1000)  
@@ -190,8 +186,6 @@ RegisterNUICallback("tattoo", function(data)
         print("Tattoo list empty or failed to load tattoos")
     end
 end)
-
-DisplayRadar(false)
 
 function DrawTattoo(collection, name, opacity)
     local playerPed = PlayerPedId()
