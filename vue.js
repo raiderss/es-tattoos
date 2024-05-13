@@ -265,6 +265,7 @@ const app = new Vue({
     if (data.which == 27) { // ESC key
         app.ui = false;
         app.tattoos.ZONE_REMOVAL = [];
+        app.select.price = 0;
         $.post(`https://${GetParentResourceName()}/exit`, JSON.stringify({}));
     } else if (data.which == 37) { 
         $.post(`https://${GetParentResourceName()}/turn`, JSON.stringify({direction: "left"}));
