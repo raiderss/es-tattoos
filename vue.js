@@ -21,6 +21,10 @@ const app = new Vue({
         class:'ZONE_TORSO'
       },
       {
+        label:'⬅️ ARMS',
+        class:'ZONE_LEFT_ARM'
+      },
+      {
         label:'➡️ ARMS',
         class:'ZONE_RIGHT_ARM'
       },
