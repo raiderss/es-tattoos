@@ -123,6 +123,7 @@ const app = new Vue({
       const url = `https://${resourceName}/buy`;
       $.post(url, JSON.stringify({ method: payment, tattoo: this.basket, price:this.select.price}))
       this.basket = [];
+      this.select.price = 0;
     },
 
     getFontSize() {
