@@ -1,6 +1,8 @@
 # [TATTOOS SHOPS](https://www.youtube.com/watch?v=2WVjORQ_Xro)
 
 [![YouTube Subscribe](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=2WVjORQ_Xro)
+[![Discord](https://img.shields.io/badge/Discord-Join-blue?style=for-the-badge&logo=discord)](https://discord.gg/EkwWvFS)
+[![Tebex Store](https://img.shields.io/badge/Tebex-Store-green?style=for-the-badge&logo=shopify)](https://eyestore.tebex.io/)
 
 **Tattoos Shops** is a simple script that allows you to discover and apply a variety of different tattoos. For now, this script is specifically designed to work with the QBCore framework.
 
