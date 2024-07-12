@@ -1,16 +1,16 @@
-# [TATTOOS SHOPS](https://www.youtube.com/watch?v=2WVjORQ_Xro)
+# [FiveM Garage Script](https://youtu.be/ZyGHSdPcUAQ)
 
-[![YouTube Subscribe](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=2WVjORQ_Xro)
+[![YouTube Subscribe](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://youtu.be/ZyGHSdPcUAQ)
 [![Discord](https://img.shields.io/badge/Discord-Join-blue?style=for-the-badge&logo=discord)](https://discord.gg/EkwWvFS)
 [![Tebex Store](https://img.shields.io/badge/Tebex-Store-green?style=for-the-badge&logo=shopify)](https://eyestore.tebex.io/)
 
-**Tattoos Shops** is a simple script that allows you to discover and apply a variety of different tattoos. For now, this script is specifically designed to work with the QBCore framework.
+**FiveM Garage Script** is a comprehensive solution that allows players to manage their vehicles in a structured and immersive way. This script is compatible with both QBCore and ESX frameworks, providing a robust and seamless integration.
 
-![Tattoos Shops Script Preview](https://github.com/raiderss/es-tattoos/assets/53000629/31e5e972-83fb-424c-95df-dcb6d3708d54)
+![FiveM Garage Script Preview](https://github.com/user-attachments/assets/3f1f1b19-94ac-4ddc-8f8b-381e09abb30d)
 
 ## Features
-- **Extensive Tattoo Collection**: Access a wide range of tattoo designs tailored to different preferences.
-- **QBCore Integration**: Fully compatible with QBCore, ensuring a seamless integration.
+- **Vehicle Management**: Manage a fleet of vehicles with ease, including storage and retrieval options.
+- **Framework Compatibility**: Works seamlessly with QBCore and ESX frameworks.
 
 ## Tebex Store
 Explore premium features and support our development by visiting our Tebex store:
@@ -23,3 +23,5 @@ Join our Discord community for real-time support and regular updates:
 ## Contributors
 - **Raider#0101**
 
+You can check out the YouTube video tutorial and showcase of the script by clicking the link below:
+[![FiveM Garage Script](https://img.shields.io/badge/YouTube-FiveM%20Garage%20Script-FF0000.svg)](https://youtu.be/ZyGHSdPcUAQ)
