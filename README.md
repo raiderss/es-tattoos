@@ -22,7 +22,3 @@ Join our Discord community for real-time support and regular updates:
 
 ## Contributors
 - **Raider#0101**
-
-
-
--- Bu yazımı ingilizce olarak fivem garaj scripti diye adlandır ve youtube videosunu böyle yap tıklanılabilir url'yi https://youtu.be/ZyGHSdPcUAQ
