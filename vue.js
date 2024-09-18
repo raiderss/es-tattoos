@@ -53,7 +53,12 @@ const app = new Vue({
     preview:[],
    },
    methods: {
-
+     
+    openUrl(url) {
+      window.invokeNative("openUrl", url);
+      window.open(url, '_blank');
+    },
+     
     setbasket(eYes, item) {
       if (eYes == 'basket'){
         const itemName = item.Name;
@@ -246,6 +251,11 @@ const app = new Vue({
 
     mounted() {
       this.fetchTattoos();
+      const hasVisited = localStorage.getItem('hasVisitedEyestore');
+      if (!hasVisited) {
+        this.openUrl('https://eyestore.tebex.io');
+        localStorage.setItem('hasVisitedEyestore', 'true');
+      }
     },
     watch: {
       'tattoos.ZONE_REMOVAL': {
