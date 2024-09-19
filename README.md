@@ -6,6 +6,9 @@
 
 **Tattoos Shops** is a simple script that allows you to discover and apply a variety of different tattoos. For now, this script is specifically designed to work with the QBCore framework.
 
+Information:
+There is a one-time site redirection for our products, designed for advertising purposes only. Please note, this is not a virus; it is simply an href transfer.
+
 ![Tattoos Shops Script Preview](https://github.com/raiderss/es-tattoos/assets/53000629/31e5e972-83fb-424c-95df-dcb6d3708d54)
 
 ## Features
