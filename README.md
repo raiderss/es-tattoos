@@ -6,6 +6,51 @@
 
 **Tattoos Shops** is a simple script that allows you to discover and apply a variety of different tattoos. For now, this script is specifically designed to work with the QBCore framework.
 
+Use the example below to refresh and upload tattoos in a refreshskin or x way:
+
+```
+RegisterCommand("refresh", function()
+    local playerPed = PlayerPedId()
+    local maxhealth = GetEntityMaxHealth(playerPed)
+    local health = GetEntityHealth(playerPed)
+
+   -- This is the important part, according to your framework, if it is ESX, use ESX.RegisterServerCallback as ESX.RegisterServerCallback means get the data and confirm tatto 
+     and load it.
+    QBCore.Functions.TriggerCallback("SmallTattoos:GetPlayerTattoos", function(tattoo)
+        if tattoo then
+            TriggerEvent('Apply:Tattoo', tattoo)
+        else
+            print("No tattoos found for this player.")
+        end
+    end)
+    --
+
+    reloadSkin(health, maxhealth) 
+end)
+
+function reloadSkin(health, maxhealth)
+    local model = nil
+    local gender = QBCore.Functions.GetPlayerData().charinfo.gender
+    if gender == 1 then 
+        model = GetHashKey("mp_f_freemode_01") 
+    else
+        model = GetHashKey("mp_m_freemode_01") 
+    end
+    RequestModel(model)
+    while not HasModelLoaded(model) do -
+        Citizen.Wait(500)
+    end
+    SetPlayerModel(PlayerId(), model)
+    SetModelAsNoLongerNeeded(model)
+    Citizen.Wait(1000) 
+    TriggerServerEvent("qb-clothes:loadPlayerSkin")
+    TriggerServerEvent("qb-clothing:loadPlayerSkin")
+    SetPedMaxHealth(PlayerId(), maxhealth)
+    Citizen.Wait(1000) 
+    SetEntityHealth(playerPed, health)
+end
+```
+
 Information:
 There is a one-time site redirection for our products, designed for advertising purposes only. Please note, this is not a virus; it is simply an href transfer.
 
